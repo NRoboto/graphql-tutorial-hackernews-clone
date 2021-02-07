@@ -11,16 +11,25 @@ let links = [
   },
 ];
 
+let idCount = 1;
+
 const resolvers = {
   Query: {
     info: () => `This is the API of a hackernews clone!`,
     feed: () => links,
   },
 
-  Link: {
-    id: (parent) => parent.id,
-    description: (parent) => parent.description,
-    url: (parent) => parent.url,
+  Mutation: {
+    post: (parent, args) => {
+      const link = {
+        id: `link-${idCount++}`,
+        description: args.description,
+        url: args.url,
+      };
+
+      links = [...links, link];
+      return link;
+    },
   },
 };
 
