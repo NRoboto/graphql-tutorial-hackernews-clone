@@ -13,6 +13,8 @@ const post = async (_parent, args, context) => {
     },
   });
 
+  context.pubSub.publish("NEW_LINK", link);
+
   return link;
 };
 
