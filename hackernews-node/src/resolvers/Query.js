@@ -10,6 +10,8 @@ const feed = async (_parent, args, context) =>
           ],
         }
       : {},
+    skip: args.skip,
+    take: args.take,
   });
 
 const link = async (_parent, args, context) =>
