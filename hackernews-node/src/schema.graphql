@@ -26,6 +26,7 @@ type Link {
   url: String!
   postedBy: User!
   votes: [Vote!]!
+  createdAt: Date!
 }
 
 type AuthPayload {
@@ -61,3 +62,5 @@ enum Sort {
   asc
   desc
 }
+
+scalar Date
